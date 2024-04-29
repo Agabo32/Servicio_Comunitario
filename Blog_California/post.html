@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALIFORNIA</title>
+    <link rel="stylesheet" href="CSS/estilos.css">
+</head>
+<body>
+    <div id="main-content">
+        <div id="header">
+            <img src="Imagenes/Fondo_InicioSesion.png" alt="Encabezado">
+            <div id="logoo">
+                <img src="Imagenes/Nombre_California_Blanco.png" alt="Logo">
+            </div>
+            <div id="logout">
+                <form action="PHP/CerrarSesion.php" method="post">
+                    <input type="submit" value="Cerrar Sesión">
+                </form>
+            </div>
+        </div>
+       
+        <form id="form" action="PHP/upload.php" method="post" enctype="multipart/form-data">
+            <input type="text" name="text" placeholder="Escribe algo...">
+            <input type="file" name="img">
+            <input type="submit" value="Publicar">
+            
+        </form>
+
+       <button id="delete-all-posts">Eliminar todos los posts</button> <!-- Botón para eliminar todos los posts -->
+        <div id="posts"></div> <!-- Aquí se mostrarán los posts -->
+        
+        <script src="JS/updatepost.js"></script>
+        <script src="JS/updatecomments.js"></script>
+        <!-- Script para actualizar los posts al cargar la página -->
+        <script>
+            fetch('PHP/show.php')
+                .then(response => response.text())
+                .then(data => document.getElementById('posts').innerHTML = data);
+        </script>
+        <!-- Script para manejar la eliminación de posts individuales -->
+        <script src="JS/deletePost.js"></script>
+        <script src="JS/deleteAllPosts.js"></script>
+        <script src="JS/likes.js"></script>
+
+
+    </div>
+
+    <div class="footer">
+        <div class="Imagen_Footer">
+            <img src="Imagenes/Nombre_California_Blanco.png" alt="" />
+        </div>
+        <div class="Nosotros">
+            <h2>NOSOTROS</h2>
+            <p>La comunidad se caracteriza por tener niveles y tipos de participación comunitaria en la toma de decisiones, tales como asambleas de ciudadanos, consejo comunal, asociaciones civiles y comités.</p>
+        </div>
+        <div class="Acceder">
+            <h2>ACCEDER</h2>
+            <ul>
+                <li><a href="#Historia">HISTORIA</a></li>
+                <li><a href="#Comunidad">COMUNIDAD</a></li>
+                <li><a href="#Geografia">GEOGRAFÍA</a></li>
+            </ul>
+        </div>
+        <script src="JS/Estilo_Principal.js"></script>
+    </div>
+</body>
+</html>
